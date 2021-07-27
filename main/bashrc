@@ -5,7 +5,6 @@
 alias e='exit'
 alias c='clear'
 alias l='ls -la'
-alias s='tmux new -s'
 # PS1
 # user@host <current dir> >
 export PS1="\u@\H \W > \[$(tput sgr0)\]"
