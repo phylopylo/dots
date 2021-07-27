@@ -1,0 +1,11 @@
+#!/bin/bash
+# Philip Roberts Jul 25, 2021
+
+# Bash Aliases
+alias e='exit'
+alias c='clear'
+alias l='ls -la'
+alias s='tmux new -s'
+# PS1
+# user@host <current dir> >
+export PS1="\u@\H \W > \[$(tput sgr0)\]"
