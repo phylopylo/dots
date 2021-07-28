@@ -1,0 +1,170 @@
+# i3 config file
+# Default Configuration combined with my shortcuts
+# ____  _     _ _ _         ____       _               _
+#|  _ \| |__ (_) (_)_ __   |  _ \ ___ | |__   ___ _ __| |_ ___
+#| |_) | '_ \| | | | '_ \  | |_) / _ \| '_ \ / _ \ '__| __/ __|
+#|  __/| | | | | | | |_) | |  _ < (_) | |_) |  __/ |  | |_\__ \
+#|_|   |_| |_|_|_|_| .__/  |_| \_\___/|_.__/ \___|_|   \__|___/
+#                  |_|
+#
+# NOTE TO THE READER: I don't use i3-wm anymore. Use this config file at your own risk.
+# I don't even know why you're looking at this to be honest
+
+
+# Mod key is windows key
+set $mod Mod4
+
+# font
+font pango:UbuntuMono-regular 8
+exec compton
+# Lock Screen
+bindsym $mod+Shift+b exec i3lock -i /home/phylo/Documents/computer-backgrounds/birds.jpg -p default -n
+# Open Chromium
+bindsym $mod+Shift+z exec --no-startup-id chromium-browser
+# Open Nautilus
+bindsym $mod+Shift+x exec --no-startup-id nautilus
+# Open Pavucontrol
+bindsym $mod+Shift+a exec --no-startup-id pavucontrol
+# Set Background
+exec --no-startup-id feh --randomize --bg-fill ~/Desktop/red.jpg
+# Exit i3-wm
+bindsym $mod+Shift+o exit
+# Run Compton Compositor
+exec --no-startup-id compton --config ~.config/i3/compton.conf
+# Gaps
+for_window [class=".*"] border pixel 0
+gaps inner 10
+gaps outer -5
+# Screensaver
+
+
+bar {
+        status_command i3status
+        position top
+        colors {
+                background #9D0B0B
+                statusline #F6Da63
+                separator #EB8242
+
+                focused_workspace  #EB8242 #9D0B0B #F6DA63
+                active_workspace   #Da2D2D #9D0B0B #F6Da63
+                inactive_workspace #Da2D2D #9D0B0B #EB8242
+                urgent_workspace   #Da2D2D #9D0B0B #ffffff
+                binding_mode       #Da2D2D #9D0B0B #ffffff
+            }
+}
+
+
+floating_modifier $mod
+
+bindsym $mod+Return exec terminator
+
+bindsym $mod+Shift+q kill
+
+bindsym $mod+d exec --no-startup-id rofi -show run
+
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "0"
+set $wss "?"
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+c workspace $wss
+
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+s move container to workspace $wss
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Leave i3-wm' -B 'Head out' 'i3-msg exit' -B 'Shutdown' 'shutdown now'"
+
+mode "resize" {
+
+        bindsym j resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym l resize shrink height 5 px or 5 ppt
+        bindsym semicolon resize grow width 5 px or 5 ppt
+
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+bindsym $mod+m mode "move" focus floating
+mode "move" {
+
+    bindsym Left  move left
+    bindsym Down  move down
+    bindsym Up    move up
+    bindsym Right move right
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
