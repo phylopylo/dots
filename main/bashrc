@@ -5,6 +5,7 @@
 alias e='exit'
 alias c='clear'
 alias l='ls -la'
+alias py='python3'
 # PS1
 # user@host <current dir> >
 export PS1="\u@\H \W > \[$(tput sgr0)\]"
