@@ -1,6 +1,3 @@
 if $TERM =~ 'xterm-256color'
   set noek
 endif
-
-set nocompatible
-
