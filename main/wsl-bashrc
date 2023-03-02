@@ -8,8 +8,10 @@ alias l='ls -la'
 alias py='python3'
 alias extract="tar -xvf"
 alias bp="powershell.exe '[console]::beep(261.6, 700)'"
+alias battery="cat /sys/class/power_supply/battery/capacity"
 
 # PS1
 # user@host <current dir> >
 export PS1="\u@\H \W > \[$(tput sgr0)\]"
 
+cd /mnt/c/users/Philip/Documents
