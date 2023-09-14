@@ -5,13 +5,38 @@
 alias e='exit'
 alias c='clear'
 alias l='ls -la'
+alias cdh="cd /mnt/c/users/Philip/Documents"
+
+# Tmux Aliases
+alias t="tmux"
+alias ta="tmux attach"
+alias td="tmux detach"
+alias tls="tmux ls"
+alias tas="tmux attach -t "
+
+# Utilities
 alias py='python3'
 alias extract="tar -xvf"
+alias b="vim ~/.bashrc"
+alias tree="tree -a"
+
+# Check Battery
 alias bp="powershell.exe '[console]::beep(261.6, 700)'"
 alias battery="cat /sys/class/power_supply/battery/capacity"
+alias batterystatus="watch cat /sys/class/power_supply/battery/capacity"
 
-# PS1
-# user@host <current dir> >
+# Compile main.cpp (for CSCI 303)
+alias compile="g++ -std=c++11 main.cpp -o main"
+alias comprun="rm -f ./main; compile && ./main"
+
+# user@host <current dir> 
 export PS1="\u@\H \W > \[$(tput sgr0)\]"
 
-cd /mnt/c/users/Philip/Documents
+# Rust Environment
+. "$HOME/.cargo/env"
+
+cdh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
