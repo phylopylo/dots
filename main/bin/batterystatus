@@ -1,0 +1,2 @@
+
+watch -n 30 "cat /sys/class/power_supply/battery/capacity"
