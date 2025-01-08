@@ -6,6 +6,7 @@ alias e='exit'
 alias c='clear'
 alias l='ls -la'
 alias b="vim ~/.bashrc"
+alias i="vim ~/.config/i3/config"
 alias gs="git status"
 alias py='python3'
 alias extract="tar -xvf"
